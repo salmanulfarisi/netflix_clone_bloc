@@ -73,21 +73,24 @@ class Section2 extends StatelessWidget {
               ),
               DownloadImageWidget(
                 imageList: imageList[0],
-                margin: const EdgeInsets.only(left: 130, bottom: 50),
-                angle: 20,
-                size: Size(size.width * 0.4, size.width * 0.58),
+                margin: const EdgeInsets.only(left: 170, top: 50),
+                angle: 25,
+                size: Size(size.width * 0.35, size.width * 0.55),
               ),
               DownloadImageWidget(
                 imageList: imageList[1],
-                margin: const EdgeInsets.only(right: 130, bottom: 50),
+                margin: const EdgeInsets.only(
+                  right: 170,
+                  top: 50,
+                ),
                 angle: -20,
-                size: Size(size.width * 0.4, size.width * 0.58),
+                size: Size(size.width * 0.35, size.width * 0.55),
               ),
               DownloadImageWidget(
                 radius: 10,
                 imageList: imageList[2],
-                margin: const EdgeInsets.only(bottom: 10),
-                size: Size(size.width * 0.45, size.width * 0.65),
+                margin: const EdgeInsets.only(bottom: 10, top: 20),
+                size: Size(size.width * 0.4, size.width * 0.65),
               ),
             ],
           ),
@@ -182,18 +185,21 @@ class DownloadImageWidget extends StatelessWidget {
   final double radius;
   @override
   Widget build(BuildContext context) {
-    return Transform.rotate(
-      angle: angle * pi / 180,
-      child: Container(
-        margin: margin,
-        width: size.width,
-        height: size.height,
-        decoration: BoxDecoration(
-          color: kColorBlack,
-          borderRadius: BorderRadius.circular(radius),
-          image: DecorationImage(
-            image: NetworkImage(imageList),
-            fit: BoxFit.cover,
+    return Padding(
+      padding: margin,
+      child: Transform.rotate(
+        angle: angle * pi / 180,
+        child: Container(
+          // margin: margin,
+          width: size.width,
+          height: size.height,
+          decoration: BoxDecoration(
+            color: kColorBlack,
+            borderRadius: BorderRadius.circular(radius),
+            image: DecorationImage(
+              image: NetworkImage(imageList),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       ),
