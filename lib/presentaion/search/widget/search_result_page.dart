@@ -3,7 +3,7 @@ import 'package:netflix_bloc/core/constants.dart';
 import 'package:netflix_bloc/presentaion/search/widget/title.dart';
 
 const imageUrl =
-    'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/r8LPeldxskHrGJTPfhICguCip2H.jpg';
+    'https://static.toiimg.com/thumb/msid-83036120,imgsize-508425,width-800,height-600,resizemode-75/83036120.jpg';
 
 class SearchResultPage extends StatelessWidget {
   const SearchResultPage({Key? key}) : super(key: key);
