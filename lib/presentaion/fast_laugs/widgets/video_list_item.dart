@@ -40,7 +40,7 @@ class VideoListItem extends StatelessWidget {
                       child: CircleAvatar(
                         radius: 30,
                         backgroundImage: NetworkImage(
-                            'https://www.themoviedb.org/t/p/w250_and_h141_face/n6vVs6z8obNbExdD3QHTr4Utu1Z.jpg'),
+                            'https://wallpapercave.com/wp/wp6193373.jpg'),
                       ),
                     ),
                     VideoActionsWidgets(
