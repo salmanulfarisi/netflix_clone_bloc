@@ -5,7 +5,7 @@ import 'package:netflix_bloc/core/constants.dart';
 import 'package:netflix_bloc/presentaion/search/widget/title.dart';
 
 const imageUrl =
-    'https://www.themoviedb.org/t/p/w250_and_h141_face/n6vVs6z8obNbExdD3QHTr4Utu1Z.jpg';
+    'https://static.toiimg.com/thumb/msid-83036120,imgsize-508425,width-800,height-600,resizemode-75/83036120.jpg';
 
 class SearchIdleWIdjet extends StatelessWidget {
   const SearchIdleWIdjet({Key? key}) : super(key: key);
@@ -44,7 +44,7 @@ class TopSearchItemList extends StatelessWidget {
           height: 65,
           decoration: const BoxDecoration(
             image: DecorationImage(
-                image: NetworkImage(imageUrl), fit: BoxFit.cover),
+                image: NetworkImage(kHotnewImage2), fit: BoxFit.cover),
           ),
         ),
         const Expanded(
