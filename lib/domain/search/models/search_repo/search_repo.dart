@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:netflix_bloc/core/constants.dart';
 
 part 'search_repo.g.dart';
 
@@ -28,6 +29,8 @@ class SearchResultData {
 
   @JsonKey(name: 'poster_path')
   String? posterPath;
+
+  String get posterImageUrl => '$imageAppentUrl$posterPath';
 
   SearchResultData({
     this.id,
