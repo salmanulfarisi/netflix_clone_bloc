@@ -5,30 +5,41 @@ import 'package:netflix_bloc/presentaion/home/widgets/custom_botton_widget.dart'
 import 'package:netflix_bloc/presentaion/new_and_hot/widgets/video_widgets.dart';
 
 class EveryoneWatchingWidget extends StatelessWidget {
+  final String posterPath;
+  final String movieName;
+  final String description;
+
   const EveryoneWatchingWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+    required this.posterPath,
+    required this.movieName,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       kHeight,
-      const Text(
-        "Friends",
-        style: TextStyle(
+      Text(
+        movieName,
+        style: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
       ),
       kHeight,
-      const Text(
-        "This hit sitcom follows the merry misadvantures of six 20-something pals as they navigate the pitfalls of work, life and love in 1990s Manhattan.",
-        style: TextStyle(
+      Text(
+        description,
+        maxLines: 4,
+        overflow: TextOverflow.ellipsis,
+        style: const TextStyle(
           color: kColorGrey,
         ),
       ),
       kHeight50,
-      const VideoWidget(),
+      VideoWidget(
+        url: posterPath,
+      ),
       kHeight,
       Row(
         mainAxisAlignment: MainAxisAlignment.end,

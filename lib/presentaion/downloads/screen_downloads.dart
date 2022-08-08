@@ -50,70 +50,76 @@ class Section2 extends StatelessWidget {
 
     // BlocProvider.of<DownloadsBloc>(context)
     //     .add(const DownloadsEvent.getDownloadsImage());
-    return Column(
-      children: [
-        const Text(
-          'Introducing Downloads for you',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: kwhiteColor,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
+    return RefreshIndicator(
+      onRefresh: () async {
+        BlocProvider.of<DownloadsBloc>(context)
+            .add(const DownloadsEvent.getDownloadsImage());
+      },
+      child: Column(
+        children: [
+          const Text(
+            'Introducing Downloads for you',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: kwhiteColor,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        kHeight,
-        const Text(
-          "We will download a personalized selection of\nmovies and shows for you, so there'S\n is always something to watch on your\n device.",
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.grey, fontSize: 16),
-        ),
-        kHeight,
-        BlocBuilder<DownloadsBloc, DownloadsState>(
-          builder: (context, state) {
-            return SizedBox(
-              width: size.width,
-              height: size.width,
-              child: state.isLoading
-                  ? const Center(child: CircularProgressIndicator())
-                  : Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Center(
-                          child: CircleAvatar(
-                            backgroundColor: Colors.grey.withOpacity(0.5),
-                            radius: size.width * 0.4,
+          kHeight,
+          const Text(
+            "We will download a personalized selection of\nmovies and shows for you, so there'S\n is always something to watch on your\n device.",
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.grey, fontSize: 16),
+          ),
+          kHeight,
+          BlocBuilder<DownloadsBloc, DownloadsState>(
+            builder: (context, state) {
+              return SizedBox(
+                width: size.width,
+                height: size.width,
+                child: state.isLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Center(
+                            child: CircleAvatar(
+                              backgroundColor: Colors.grey.withOpacity(0.5),
+                              radius: size.width * 0.4,
+                            ),
                           ),
-                        ),
-                        DownloadImageWidget(
-                          imageList:
-                              '$imageAppentUrl${state.downloads[0].posterPath}',
-                          margin: const EdgeInsets.only(left: 170, top: 50),
-                          angle: 25,
-                          size: Size(size.width * 0.35, size.width * 0.55),
-                        ),
-                        DownloadImageWidget(
-                          imageList:
-                              '$imageAppentUrl${state.downloads[1].posterPath}',
-                          margin: const EdgeInsets.only(
-                            right: 170,
-                            top: 50,
+                          DownloadImageWidget(
+                            imageList:
+                                '$imageAppentUrl${state.downloads[0].posterPath}',
+                            margin: const EdgeInsets.only(left: 170, top: 50),
+                            angle: 25,
+                            size: Size(size.width * 0.35, size.width * 0.55),
                           ),
-                          angle: -20,
-                          size: Size(size.width * 0.35, size.width * 0.55),
-                        ),
-                        DownloadImageWidget(
-                          radius: 10,
-                          imageList:
-                              '$imageAppentUrl${state.downloads[2].posterPath}',
-                          margin: const EdgeInsets.only(bottom: 10, top: 20),
-                          size: Size(size.width * 0.4, size.width * 0.65),
-                        ),
-                      ],
-                    ),
-            );
-          },
-        ),
-      ],
+                          DownloadImageWidget(
+                            imageList:
+                                '$imageAppentUrl${state.downloads[1].posterPath}',
+                            margin: const EdgeInsets.only(
+                              right: 170,
+                              top: 50,
+                            ),
+                            angle: -20,
+                            size: Size(size.width * 0.35, size.width * 0.55),
+                          ),
+                          DownloadImageWidget(
+                            radius: 10,
+                            imageList:
+                                '$imageAppentUrl${state.downloads[2].posterPath}',
+                            margin: const EdgeInsets.only(bottom: 10, top: 20),
+                            size: Size(size.width * 0.4, size.width * 0.65),
+                          ),
+                        ],
+                      ),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }
